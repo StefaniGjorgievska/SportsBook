@@ -1,0 +1,17 @@
+<h1>Sportsbook Tree</h1>
+<hr/>
+<ngb-accordion #acc="ngbAccordion">
+    <ngb-panel id="{{i}}-acc" *ngFor="let sport of sportsBook; let i = index" [title]="sport.name">
+      <ng-template ngbPanelContent>
+        <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel id="{{i}}{{j}}-acc" *ngFor="let country of sport.countries; let j = index" [title]="country.name">
+              <ng-template ngbPanelContent>
+                <div *ngFor="let league of country.leagues; let k = index" (click)="openLeague(league.id)">
+                    {{league.name}}
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>

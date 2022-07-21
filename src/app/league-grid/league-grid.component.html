@@ -1,0 +1,43 @@
+<table class="table table-striped" *ngIf="leagueData">
+    <thead>
+        <tr>
+            <th>Match</th>
+            <th>12</th>
+            <th>x2</th>
+            <th>1x</th>
+            <th>(0)1</th>
+            <th>(0)2</th>
+            <th>Over</th>
+            <th>Under</th>
+            <th>No</th>
+            <th>Yes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of leagueData; let i = index">
+            <td>{{item.h}} - {{item.a}}</td>
+
+            <td *ngIf="!item.odds.doubleChance"></td>
+            <td *ngIf="!item.odds.doubleChance"></td>
+            <td *ngIf="!item.odds.doubleChance"></td>
+            <td *ngIf="item.odds.doubleChance"><span *ngIf="item.odds.doubleChance[0]">{{item.odds.doubleChance[0].value}}</span></td>
+            <td *ngIf="item.odds.doubleChance"><span *ngIf="item.odds.doubleChance[1]">{{item.odds.doubleChance[1].value}}</span></td>
+            <td *ngIf="item.odds.doubleChance"><span *ngIf="item.odds.doubleChance[2]">{{item.odds.doubleChance[2].value}}</span></td>
+
+            <td *ngIf="!item.odds.drawNoBet"></td>
+            <td *ngIf="!item.odds.drawNoBet"></td>
+            <td *ngIf="item.odds.drawNoBet"><span *ngIf="item.odds.drawNoBet[0]">{{item.odds.drawNoBet[0].value}}</span></td>
+            <td *ngIf="item.odds.drawNoBet"><span *ngIf="item.odds.drawNoBet[1]">{{item.odds.drawNoBet[1].value}}</span></td>
+
+            <td *ngIf="!item.odds.totalGoals"></td>
+            <td *ngIf="!item.odds.totalGoals"></td>
+            <td *ngIf="item.odds.totalGoals"><span *ngIf="item.odds.totalGoals[1]">{{item.odds.totalGoals[0].value}}</span></td>
+            <td *ngIf="item.odds.totalGoals"><span *ngIf="item.odds.totalGoals[0]">{{item.odds.totalGoals[1].value}}</span></td>
+
+            <td *ngIf="!item.odds.bothToScore"></td>
+            <td *ngIf="!item.odds.bothToScore"></td>
+            <td *ngIf="item.odds.bothToScore"><span *ngIf="item.odds.bothToScore[1]">{{item.odds.bothToScore[0].value}}</span></td>
+            <td *ngIf="item.odds.bothToScore"><span *ngIf="item.odds.bothToScore[0]">{{item.odds.bothToScore[1].value}}</span></td>
+        </tr>
+    </tbody>
+</table>
